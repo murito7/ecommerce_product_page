@@ -81,6 +81,7 @@ nav .personal .avatar:hover{
     width: 65%;
     margin: 50px auto 0;
     display: flex;
+    align-items: center;
 }
 .content .main{ 
     width: 500px;
@@ -197,3 +198,99 @@ nav .personal .avatar:hover{
     border: 2px solid var(--orange);
     opacity: 0.7;
   }
+
+.content .main-text{
+    margin-left: 100px;
+}
+.content .main-text h1{
+  margin-top: 30px;
+}
+.content .main-text p{
+  margin-top: 30px;
+}
+.content .main-text .info{
+    width: 420px;
+}
+.content .main-text span{
+    color: orange;
+    font-weight: 700;
+}
+.content .price-box{
+  margin-top: 30px;
+  display: flex;
+  width: 180px;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .price-box p{
+  padding: 5px 10px;
+  font-weight: 700;
+  color: orange;
+  background-color: #ffa60056;
+  border-radius: 5px;
+}
+.content .discount{
+  margin-top: -20px;
+  color: rgba(0, 0, 0, 0.616);
+  text-decoration: line-through;
+}
+  
+.main-text .container {
+justify-content: center;
+align-items: center;
+width: 200px;
+display: flex;
+background-color: #F6F8FD;
+text-align: center;
+}
+
+/*apply css properties to button tag*/
+
+.container button {
+width: 90px;
+height: 60px;
+font-size: 30px;
+color: orange;
+background-color: #F6F8FD;
+border: none;
+cursor: pointer;
+}
+
+
+/*apply css properties to h2 tag*/
+
+.container h2 {
+color: black;
+margin: 0 50px;
+font-size: 22px;
+}
+
+/*apply css properties to h1 tag*/
+
+.container h1 {
+font-size: 35px;
+color: green;
+text-align: center;
+padding-left: 10%;
+}
+.lower{
+display: flex;
+align-items: center;
+margin-top: 30px;
+}
+.lower .cart{
+background-color: var(--orange);
+width: 300px;
+height: 60px;
+margin-left: 15px;
+border-radius: 10px;
+display: flex;
+justify-content: center;
+cursor: pointer;
+align-items: center;
+}
+.lower .cart p{
+margin-top: 0;
+margin-left: 10px;
+color:#fff;
+}
