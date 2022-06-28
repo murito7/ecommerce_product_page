@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+:root{
+    --orange: rgb(255,125,26);
+    --white: #fff
+    --black: #000
+    --very-dark-blue: rgb(29,32,37);
+    --dark-grayish-blue: rgb(104,112,125);
+    --grayish-blue: rgb(182,187,200);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+nav{
+    width: 70%;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    line-height: 70px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 50px;
+    margin-top: 50px;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+}
+nav ul img{
+    margin-right: 50px;
+}
+nav ul li{
+    margin: 0 20px;
+    color: var(--dark-grayish-blue);
+    position: relative;
+}
+nav ul li:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    top: 92px;
+    background-color: var(--orange);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+nav ul li:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+nav .personal{
+    display: flex;
+    align-items: center;
+}
+nav .personal .cart{
+    width: 30px;
+    height: 30px;
+}
+nav .personal .avatar{
+    width: 60px;
+    height: 60px;
+    margin-left: 50px;
+}
+nav .personal .avatar:hover{
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+}
