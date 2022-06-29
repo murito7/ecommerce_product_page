@@ -14,6 +14,20 @@ function decrement() {
   }
 }
 
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "70%";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
+  document.getElementById("main").style.opacity = "0.2";
+  document.getElementById("avatar").style.opacity = "0.2";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+  document.body.style.backgroundColor = "white";
+  document.getElementById("main").style.opacity = "1";
+  document.getElementById("avatar").style.opacity = "1";
+}
+
 function openModal() {
   document.getElementById("myModal").style.display = "block";
 }
@@ -36,11 +50,14 @@ function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
+function plusSlidesMain(n) {
+  showSlides((slideIndex += n));
+}
+
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -50,12 +67,7 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  captionText.innerHTML = dots[slideIndex - 1].alt;
 }
 
 function showDiv() {
@@ -122,3 +134,22 @@ function removeFromCart() {
   document.getElementById("span").style.display = "none";
   document.getElementById("span2").style.display = "none";
 }
+
+const buttons = document.querySelectorAll("[data-carousel-button]");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+    const slides = button
+      .closest("[data-carousel]")
+      .querySelector("[data-slides]");
+
+    const activeSlide = slides.querySelector("[data-active]");
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+    if (newIndex < 0) newIndex = slides.children.length - 1;
+    if (newIndex >= slides.children.length) newIndex = 0;
+
+    slides.children[newIndex].dataset.active = true;
+    delete activeSlide.dataset.active;
+  });
+});
