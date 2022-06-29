@@ -9,69 +9,6 @@
   <title>Frontend Mentor | E-commerce product page</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <script>
-    // Open the Modal
-    function openModal() {
-      document.getElementById("myModal").style.display = "block";
-    }
-    
-    // Close the Modal
-    function closeModal() {
-      document.getElementById("myModal").style.display = "none";
-    }
-    
-    var slideIndex = 1;
-    showSlides(slideIndex);
-    
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("demo");
-      var captionText = document.getElementById("caption");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
-      captionText.innerHTML = dots[slideIndex-1].alt;
-    }
-
-    </script>
-    <script>
-    
-  var data = 0;
-
-    document.getElementById("counting").innerText = data;
-
-    function increment() {
-        data = data + 1 ;
-        document.getElementById("counting").innerText = data;
-    }
-
-    function decrement() {
-        data = data - 1;
-        document.getElementById("counting").innerText = data;
-        if(data <= 0){
-          data = 1
-        }
-    }
-    </script>
 </head>
 <body>
   <nav>
@@ -84,8 +21,40 @@
       <li>Contact</li>
     </ul>
     <div class="personal">
-      <img class="cart" src="images/icon-cart.svg" alt="">
+      <img onclick="showDiv()" class="cart" src="images/icon-cart.svg" alt="">
+      <span id="span2"><p id="span">0</p></span>
       <img class="avatar" src="images/image-avatar.png" alt="">
+    </div>
+    <div id="cart" class="cart-content">
+      <nav>
+        <h4>Cart</h1>
+      </nav>
+      <div id="cart-content">
+        <div class="cart-item" style="display: none;">
+          <div class="image-thumbnail">
+            <img src="./images//image-product-1-thumbnail.jpg" />
+          </div>
+          <div class="item-details">
+            <h5>Fall Limited Edition Sneakers</h5>
+            <!-- <h5 id="items-price">$125.00 x 3 <strong>$375.00</strong></h5> -->
+          </div>
+          <div class="delete-icon" onclick="removeFromCart()">
+            <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+                <path
+                  d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z"
+                  id="a" />
+              </defs>
+              <use fill="#C3CAD9" fill-rule="nonzero" xlink:href="#a" />
+            </svg>
+          </div>
+        </div>
+        <button onclick="removeFromCart()"  id="checkout-btn" style="display: none">Checkout</button>
+        <p id="empty-cart">
+          Your cart is empty.
+        </p>
+      </div>
     </div>
   </nav>
   <div class="content">
@@ -166,17 +135,18 @@
         <p>$250.00</p>
       </div>
       <div class="lower">
-        <div class ="container";>            
-          <button onclick="increment()">+</button>  
-          <h2 id="counting">0</h2>
-          <button onclick="decrement()">-</button>         
+        <div class ="container">            
+          <button onclick="decrement()">-</button>  
+          <input type="number" value="0" id="counting" min="0">
+          <button onclick="increment()">+</button>         
       </div>
-        <div class="cart">
+        <div class="cart" onclick="addToCart()">
           <svg class="cart-svg" width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#fff" fill-rule="nonzero"/></svg>
           <p>Add to cart</p>
         </div>
       </div>
     </div>
   </div>
+  <script src="app.js"></script>
 </body>
 </html>
