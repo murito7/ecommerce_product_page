@@ -441,6 +441,9 @@ input[type="number"]::-webkit-inner-spin-button {
   border: none;
   background-color: #F6F8FD;
 }
+.container input[type="number"]:focus{
+  outline: none;
+}
 
 
 /*apply css properties to h2 tag*/
