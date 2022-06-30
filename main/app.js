@@ -19,6 +19,7 @@ function openNav() {
   document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
   document.getElementById("main").style.opacity = "0.2";
   document.getElementById("avatar").style.opacity = "0.2";
+  document.getElementById("span2").style.opacity = "0.2";
 }
 
 function closeNav() {
@@ -26,6 +27,7 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
   document.getElementById("main").style.opacity = "1";
   document.getElementById("avatar").style.opacity = "1";
+  document.getElementById("span2").style.opacity = "1";
 }
 
 function openModal() {
